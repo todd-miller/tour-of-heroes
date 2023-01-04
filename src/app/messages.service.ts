@@ -11,6 +11,7 @@ export class MessagesService {
   add(message: string) {
     this.messages.push(message);
   }
+
   clear (): void {
     this.messages = [];
   }

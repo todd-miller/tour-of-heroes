@@ -12,13 +12,11 @@ import { HEROES } from './mock-heroes';
 export class HeroService {
   private heroesUrl = 'api/heroes';
 
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-
 
   constructor(
     private http: HttpClient,
@@ -28,7 +26,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
+        tap(r => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       )
   }
@@ -87,6 +85,7 @@ export class HeroService {
   }
 
   private log(message: string) {
+    console.log(message);
     this.messageService.add(`HeroService: ${message}`);
   }
 }
