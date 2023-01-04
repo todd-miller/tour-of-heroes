@@ -85,7 +85,6 @@ export class HeroService {
   }
 
   private log(message: string) {
-    console.log(message);
     this.messageService.add(`HeroService: ${message}`);
   }
 }
